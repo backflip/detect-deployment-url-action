@@ -1,0 +1,12 @@
+name: "Detect Netlify Deployment URL"
+description: "Detect deployment URL of Netlify build in  Netlify bot comment"
+inputs:
+  regex:
+    description: "RegExp to detect URL"
+    required: true
+outputs:
+  url:
+    description: "The detected URL"
+runs:
+  using: "node16"
+  main: "index.js"
