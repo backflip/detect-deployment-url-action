@@ -5,17 +5,18 @@ try {
   console.log({ context: github.context });
 
   const regex = core.getInput("regex");
-  const comment = github.context.payload.comment?.body;
+  const { payload } = github.context;
+  const comment = payload.comment ? payload.comment.body : null;
 
   console.log({ comment });
 
   if (comment) {
-    const url = comment.match(new RegExp(regex))?.[0];
+    const url = comment.match(new RegExp(regex));
 
     console.log({ url });
 
     if (url) {
-      core.setOutput("url", url);
+      core.setOutput("url", url[0]);
     }
   }
 } catch (error) {
