@@ -1,6 +1,6 @@
-# Detect Netlify Deployment URL (Github action)
+# Detect Deployment URL (Github action)
 
-Detect deployment URL of Netlify build in Netlify bot comment
+Detect deployment URL in bot comment (Netlify, Vercel etc.)
 
 ## Inputs
 
@@ -8,7 +8,13 @@ Detect deployment URL of Netlify build in Netlify bot comment
 
 RegExp to detect URL.
 
-Example: `https://deploy-preview-(.*?)--myproject.netlify.app`
+Example: `https://deploy-preview-(.*?)--myproject.vercel.app`
+
+### `ignoreRegex`
+
+RegExp to decide whether to ignore this comment.
+
+Example: `Deployment in progress`
 
 ## Outputs
 
