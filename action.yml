@@ -1,9 +1,12 @@
-name: "Detect Netlify Deployment URL"
-description: "Detect deployment URL of Netlify build in  Netlify bot comment"
+name: "Detect Deployment URL"
+description: "Detect deployment URL in bot comment (Netlify, Vercel etc.)"
 inputs:
   regex:
     description: "RegExp to detect URL"
     required: true
+  ignoreRegex:
+    description: "RegExp to decide whether to ignore this comment"
+    required: false
 outputs:
   url:
     description: "The detected URL"
