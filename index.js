@@ -7,6 +7,8 @@ try {
   const regex = core.getInput("regex");
   const ignoreRegex = core.getInput("ignoreRegex");
 
+  console.log({ regex, ignoreRegex });
+
   const { payload } = github.context;
   const comment = payload.comment ? payload.comment.body : null;
 
@@ -18,6 +20,8 @@ try {
     if (ignore) {
       console.log(`Ignoring comment because "ignoreRegex" matched`);
     } else {
+      console.log({ parsedRegex: new RegExp(regex) });
+
       const url = comment.match(new RegExp(regex));
 
       console.log({ url });
